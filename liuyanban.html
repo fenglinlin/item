@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>留言板</title>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		.box{
+			width: 600px;
+			min-height: 300px;
+			border: 1px solid red;
+			margin: 50px auto 0px;
+		}
+		[type = "text"]{
+			border: 10px solid #000;
+			border-radius: 20px;
+			width: 400px;
+			height: 30px;
+			font-size: 20px;
+		}
+		[type = 'button']{
+			border: 10px solid #000;
+			border-radius: 20px;
+			height: 40px;
+			width: 120px;
+			font-size: 20px;
+		}
+		ul li{
+			height: 40px;
+			padding-left: 10px;
+			line-height: 40px;
+			border-bottom: 1px dashed red; 
+		}
+		ul li:nth-child(odd){
+			background-color: lightblue;
+		}
+		ul li span{
+			float: right;
+			margin-right: 50px;
+		}
+	</style>
+</head>
+<body>
+<div class="box">
+	<input type="text" name="" placeholder="留言"/>
+	<input type="button" value="提交"/>
+	<ul class="list">
+		
+	</ul>
+</div>
+</body>
+<script type="text/javascript">
+	var UL =document.querySelector('.list');
+	// console.log(UL.previousElementSibling);//获取上一个兄弟元素节点 
+	var btn = UL.previousElementSibling;
+	btn.onclick = function(){
+		var text = this.previousElementSibling.value;
+		var li =document.createElement('li');
+		var a = document.createElement('a');
+		a.href = "#";
+		var date = new Date();
+		a.innerText = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+		li.innerText = text;
+		li.appendChild(a);
+		// console.log(li);
+		var first = UL.firstChild;
+		UL.insertBefore(li,first);
+		var span = document.createElement('span');
+		li.appendChild(span);
+		span.innerText = ('删除');
+		console.log(li);
+		span.onclick = function(){
+			span.removeChild('span');
+		}
+	}
+
+
+</script>
+</html>
