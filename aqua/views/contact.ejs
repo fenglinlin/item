@@ -1,0 +1,23 @@
+<% include header %>
+<style>
+  .main{
+    padding: 100px 0 0 0;
+    background: #eee;;
+  }
+</style>
+<div class="main">
+  <div class="container">
+    <h2><%= title %> 0000</h2>
+
+    <% if(false){ %>
+      <p>我是一个段落</p>
+    <% } %>
+
+
+    <%for(var i = 0;i<10;i++){%>
+      <span><%= i+1 %></span>
+    <%}%>
+  </div>  
+</div>
+
+<% include footer %>
